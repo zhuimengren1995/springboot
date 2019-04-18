@@ -33,7 +33,7 @@ public class UserService {
         String key = "user-" + id;
         if (redisUtil.hasKey(key)) {
             Object user = redisUtil.get(key);
-            logger.info(" 从缓存中查询的数据 "+key);
+            logger.info(" 从缓存中查询的数据:  "+user);
             return (User) user;
 
         }

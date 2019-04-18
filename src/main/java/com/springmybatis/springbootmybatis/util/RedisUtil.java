@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * redis操作的封装
- *
  * @author amc2533064395@163.com
  * @date 2019/4/17 11:23
  */
