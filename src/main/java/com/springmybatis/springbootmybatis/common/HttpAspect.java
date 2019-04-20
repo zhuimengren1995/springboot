@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
+ * http获取工具
  * @author amc2533064395@163.com
  * @date 2019/4/20 14:07
  */
@@ -42,8 +43,8 @@ public class HttpAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
-        //URL
-        LOGGER.warn("URL={}", request.getRequestURI());
+        //URI
+        LOGGER.warn("URI={}", request.getRequestURI());
 
 
         //Method
