@@ -4,11 +4,15 @@ springboot+mybatis+redis+mongoDB+...
 
 在之后还会集成大众点评的cat的分布式监控等一些当下企业在微服务中常用的企业级技术。
 
-java 1.8
+**java 1.8 
+
 mysql 5.7.5
+
 redis 3.2.1
+
 mongoDB 4.0.9
-springboot 2.1.4
+
+springboot 2.1.4**
 
 
 *********************************
