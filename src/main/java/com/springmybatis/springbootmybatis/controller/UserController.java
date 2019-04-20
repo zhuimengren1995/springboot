@@ -1,8 +1,10 @@
 package com.springmybatis.springbootmybatis.controller;
 
 
+import com.springmybatis.springbootmybatis.model.MongoLog;
 import com.springmybatis.springbootmybatis.model.User;
 import com.springmybatis.springbootmybatis.service.UserService;
+import com.springmybatis.springbootmybatis.util.MongoDBUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
+    @Autowired
+    private MongoDBUtil mongoDBUtil;
+
 
     /**
      * 根据id查询
@@ -33,6 +38,7 @@ public class UserController {
     public User findUserById(int id) {
         User user = userService.findUserById(id);
         logger.info(" user {}", user.getName());
+        mongoDBUtil.saveObj(new MongoLog());
         return user;
 
 

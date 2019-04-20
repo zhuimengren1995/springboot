@@ -23,7 +23,7 @@
             <!-- 文件名：log/demo.2017-12-05.0.log -->
             <fileNamePattern>log/demo.%d.%i.log</fileNamePattern>
             <!-- 每产生一个日志文件，该日志文件的保存期限为30天 -->
-            <maxHistory>30</maxHistory>
+            <maxHistory>15</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- maxFileSize:这是活动文件的大小，默认值是10MB，测试时可改成1KB看效果 -->
                 <maxFileSize>1KB</maxFileSize>
@@ -45,7 +45,7 @@
     <!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
     <!-- com.liyan为根包，也就是只要是发生在这个根包下面的所有日志操作行为的权限都是DEBUG -->
     <!-- 级别依次为【从高到低】：FATAL > ERROR > WARN > INFO > DEBUG > TRACE  -->
-    <logger name="com.private" level="DEBUG">
+    <logger name="com.springmybatis" level="INFO">
         <appender-ref ref="demolog" />
     </logger>
 </configuration>
