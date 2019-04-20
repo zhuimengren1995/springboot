@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * 使用 MongoTemplate 对方法进行封装
+ * 使用 MongoTemplate
  * @author amc2533064395@163.com
  * @date 2019/4/17 17:33
  */
@@ -30,7 +30,6 @@ public class MongoDBUtil {
      */
     public String saveObj(MongoLog mongoLog) {
         logger.info("--------------------->[MongoDB save start]");
-        mongoLog.setMethod(" mongodb成功");
         mongoTemplate.save(mongoLog);
         return "添加成功";
     }

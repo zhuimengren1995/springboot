@@ -1,7 +1,6 @@
 package com.springmybatis.springbootmybatis.controller;
 
 
-import com.springmybatis.springbootmybatis.model.MongoLog;
 import com.springmybatis.springbootmybatis.model.User;
 import com.springmybatis.springbootmybatis.service.UserService;
 import com.springmybatis.springbootmybatis.util.MongoDBUtil;
@@ -13,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 /**
  * 用户基本CRUD
+ *
  * @author amc2533064395@163.com
  * @date 2019/4/15 16:48
  */
@@ -31,14 +30,15 @@ public class UserController {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
     @RequestMapping(value = {"/find"}, method = RequestMethod.GET)
-    public User findUserById(int id) {
+    public User findUserById(int id) throws Exception {
         User user = userService.findUserById(id);
-        logger.info(" user {}", user.getName());
-        mongoDBUtil.saveObj(new MongoLog());
+        logger.info(" user {}", user.getSex());
+
         return user;
 
 
@@ -46,12 +46,13 @@ public class UserController {
 
     /**
      * 新增user
+     *
      * @param name,age,sex
      * @return
      */
     @RequestMapping(value = {"/save"}, method = RequestMethod.POST)
     public boolean saveUser(String name, int age, int sex) {
-        User user=new User();
+        User user = new User();
         user.setName(name);
         user.setAge(age);
         user.setSex(sex);
@@ -63,6 +64,7 @@ public class UserController {
 
     /**
      * 删除user
+     *
      * @param id
      * @return
      */
@@ -79,9 +81,9 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = {"/update"})
-    public boolean updateUserById(int id ,String name,int age,int sex) {
+    public boolean updateUserById(int id, String name, int age, int sex) throws Exception {
         User user = findUserById(id);
-        boolean b = userService.updateUserById(name==null?user.getName():name, age==0?user.getAge():age, sex==0?user.getSex():sex, id);
+        boolean b = userService.updateUserById(name == null ? user.getName() : name, age == 0 ? user.getAge() : age, sex == 0 ? user.getSex() : sex, id);
         return b;
 
 
